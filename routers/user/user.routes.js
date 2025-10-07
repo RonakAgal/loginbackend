@@ -12,10 +12,9 @@ router.post('/register', validateRequest(registerUserValidation), registerUser);
 router.post('/login', validateRequest(loginSchema), loginUser);
 router.post('/logout', logoutUser);
 
-router.patch('/profile', updateProfile)
-router.delete('/profile', deleteProfile)
-router.get('/profile',getProfile)
 
-router.get('/isLoggedIn',isLoggedIn)
+router.get('/profile',authMiddleware,getProfile)
+router.get("/all", authMiddleware, verifyAdmin, getAllUsers);
+
 
 export default router;
