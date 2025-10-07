@@ -13,8 +13,8 @@ router.post('/login', validateRequest(loginSchema), loginUser);
 router.post('/logout', logoutUser);
 
 
-router.get('/profile',authMiddleware,getProfile)
-router.get("/all", authMiddleware, verifyAdmin, getAllUsers);
+router.get('/profile',getProfile)
+router.get("/all", getAllUsers);
 
 
 export default router;
