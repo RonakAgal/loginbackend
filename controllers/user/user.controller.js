@@ -57,7 +57,7 @@ export const getProfile = expressAsyncHandler(async (req,res,next)=>{
 
 
 // for get allusers
-export const getAllUser = expressAsyncHandler(async (req, res, next) => {
+export const getAllUsers = expressAsyncHandler(async (req, res, next) => {
   const users = await userCollection.find().select("-password");
   new ApiResponse(200, true, "All users fetched successfully", users).send(res);
 });
