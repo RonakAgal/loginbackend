@@ -10,11 +10,6 @@ if (process.argv[2] === "seedAdmin") {
 }
 import userRoutes from './routers/user/user.routes.js';
 import cookieParser from 'cookie-parser';
-// import productRoutes from './routers/admin/product.routes.js';
-// import addressRoutes from './routers/shop/address.routes.js'
-// import shopCartRoutes from './routers/shop/cart.routes.js'
-// import shopOrderRoutes from './routers/shop/order.routes.js'
-// import shopReviewRoutes from './routers/shop/review.routes.js'
 import error from './middlewares/Error.middleware.js';
 import { authenticate, authorize } from './middlewares/Auth.middlerware.js';
 
@@ -26,15 +21,12 @@ app.use(express.urlencoded({ extended: true }));  // to parse nested data ,by de
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin:"http://localhost:5173",
-    credentials:true
+    // origin:"http://localhost:5173",
+     origin: process.env.FRONTEND_URL,
+     credentials:true
 }));
 app.use('/api/users', userRoutes);
-// app.use('/api/admin/products', authenticate, authorize, productRoutes);
-// app.use('/api/shop/addresses', authenticate, addressRoutes);
-// app.use('/api/shop/cart', authenticate,shopCartRoutes);
-// app.use('/api/shop/order', authenticate,shopOrderRoutes);
-// app.use('/api/shop/review', authenticate,shopReviewRoutes);
+
 app.use(error)
 
 app.listen(process.env.PORT, (err) => {
