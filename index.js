@@ -29,6 +29,9 @@ app.use(cors({
     origin:"http://localhost:5173",
     credentials:true
 }));
+app.get("/", (req, res) => {
+  res.send("✅ Backend is running successfully!");
+});
 app.use('/api/users', userRoutes);
 // app.use('/api/admin/products', authenticate, authorize, productRoutes);
 // app.use('/api/shop/addresses', authenticate, addressRoutes);
