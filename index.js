@@ -21,12 +21,12 @@ app.use(express.urlencoded({ extended: true }));  // to parse nested data ,by de
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    // origin:"http://localhost:5173",
-     origin: process.env.FRONTEND_URL,
+    origin:"http://localhost:5173",
+    //  origin: process.env.FRONTEND_URL,
      credentials:true
 }));
 app.get("/", (req, res) => {
-  res.send("✅ Backend is running successfully!");
+  res.send("Backend is running successfully!");
 });
 app.use('/api/users', userRoutes);
 

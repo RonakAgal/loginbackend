@@ -67,16 +67,16 @@ export const getAllUsers = expressAsyncHandler(async (req, res, next) => {
 });
 
 
-export const getProfile = expressAsyncHandler(async (req,res,next)=>{
-   if (!req.user) return next(new CustomError("Unauthorized", 401));
-  new ApiResponse(200, true, "Profile fetched successfully", req.user).send(res);
-})
+// export const getProfile = expressAsyncHandler(async (req,res,next)=>{
+//    if (!req.user) return next(new CustomError("Unauthorized", 401));
+//   new ApiResponse(200, true, "Profile fetched successfully", req.user).send(res);
+// })
 
 
 
-// for get allusers
-export const getAllUsers = expressAsyncHandler(async (req, res, next) => {
-  const users = await userCollection.find().select("-password");
-  new ApiResponse(200, true, "All users fetched successfully", users).send(res);
-});
+// // for get allusers
+// export const getAllUsers = expressAsyncHandler(async (req, res, next) => {
+//   const users = await userCollection.find().select("-password");
+//   new ApiResponse(200, true, "All users fetched successfully", users).send(res);
+// });
 
